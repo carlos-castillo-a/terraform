@@ -3,10 +3,14 @@
 This repository serves as a storage for Infrastructure as Code (IaC) projects built on AWS, Azure, and GCP using Terraform and other tools. It organizes the contents of `.tf` configuration files for each platform and includes modules used to ensure standardization across different types of common resources. The primary goal of this project is to facilitate automated deployments and version control for IaC projects.
 
 ## Workflow
-The projects in this repository follow a workflow that includes the use of various IaC tools. The specific workflow may vary depending on the project and platform requirements.
+The projects in this repository are created using Terraform Cloud's Remote runs, as depicted in the following diagram:
+
+![](./.attachments/terraform-cloud-workflow.png)
 
 ## Modules
-Modules within this repository are primarily controlled and versioned using GitHub. They are designed to be reusable components that encapsulate specific infrastructure configurations. These modules can be referenced and utilized within the IaC projects.
+Modules are primarily controlled and versioned through GitHub. They can also be referenced using Terraform Cloud's **Private Module Registry** feature. The workflow for maintaining and utilizing modules is illustrated below:
+
+![](./.attachments/modules-workflow.png)
 
 Here is a list of available modules that can be referenced:
 

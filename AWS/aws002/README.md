@@ -4,4 +4,4 @@ This project is similar to [aws002](../aws002/) but this time, I create the buck
 ### Workflow
 This diagram shows how the s3-module is referenced by Workspaces in Terraform Cloud:
 
-![](../../Attachments/aws002-workflow.png)
+![](../../.attachments/aws002-workflow.png)
