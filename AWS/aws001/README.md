@@ -4,4 +4,4 @@ This project will be to create an S3 bucket that blocks public access. The main 
 ### Workflow
 Respository (AzureDevOps/GitHub) -> Terraform Cloud (Workspaces) -> AWS Account (dev/prod)
 
-![](../../Attachments/aws001-workflow.png)
+![](../../.attachments/aws001-workflow.png)
