@@ -6,7 +6,7 @@ module "s3-module" {
   environment           = var.environment                                                          # Required
   num                   = 2                                                                        # Required
 
-  name_suffix           = "final"                                                                  # Optional
+  name_suffix           = ""                                                                         # Optional
   # block_public_access = true                                                                       # Optional
   # versioning_enabled  = true                                                                       # Optional
   # tags                = {}                                                                         # Optional       
