@@ -1,5 +1,5 @@
 # Project
-project = "aws0001"
+project = "aws001"
 
 # S3 vars
 s3_block_public_acls       = "true"

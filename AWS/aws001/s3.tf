@@ -1,10 +1,10 @@
 # Bucket(s)
-resource "aws_s3_bucket" "aws0001-bucket" {
+resource "aws_s3_bucket" "aws001-bucket" {
   bucket = "${var.project}-${var.environment}-bucket"
 }
 
-resource "aws_s3_bucket_public_access_block" "aws0001-public-access" {
-  bucket = aws_s3_bucket.aws0001-bucket.id
+resource "aws_s3_bucket_public_access_block" "aws001-public-access" {
+  bucket = aws_s3_bucket.aws001-bucket.id
 
   block_public_acls       = var.s3_block_public_acls
   block_public_policy     = var.s3_block_public_policy

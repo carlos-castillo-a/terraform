@@ -1,30 +1,31 @@
-# Integration with Terraform Cloud
-This repository will hold the contents of .tf configuration files for projects built on AWS, Azure, and GCP. It will also reference modules used to test the standardization of various types of common resources. The ultimate goal is to automate deployments by integrating Version Control with Terraform Cloud.
+# Infrastructure as Code Repository
 
-### Workflow
-The projects in this repository are created by Terraform Cloud using Remote runs as shown in this diagram:
+This repository serves as a storage for Infrastructure as Code (IaC) projects built on AWS, Azure, and GCP using Terraform and other tools. It organizes the contents of `.tf` configuration files for each platform and includes modules used to ensure standardization across different types of common resources. The primary goal of this project is to facilitate automated deployments and version control for IaC projects.
 
-![](./Attachments/terraform-cloud-workflow.png)
-
+## Workflow
+The projects in this repository follow a workflow that includes the use of various IaC tools. The specific workflow may vary depending on the project and platform requirements.
 
 ## Modules
-Modules are primarily controlled and versioned via GitHub but also referenced using Teraform Cloud's _Private Module Registry_ feature. Below is a workflow of how modules are maintained and used:
+Modules within this repository are primarily controlled and versioned using GitHub. They are designed to be reusable components that encapsulate specific infrastructure configurations. These modules can be referenced and utilized within the IaC projects.
 
-![](./Attachments/modules-workflow.png)
+Here is a list of available modules that can be referenced:
 
-
-The following is a list of available modules to reference:
 - [s3](https://github.com/carlos-castillo-a/s3-module)
 
-
 ## AWS
-The following is a list of projects connected to AWS:
-- [aws0001](./AWS/aws0001/): Creating an S3 bucket
-- [aws0002](./AWS/aws0002/): Create S3 bucket via module
+The following projects are connected to AWS:
+
+- [aws001](./AWS/aws001/): Create an S3 bucket
+- [aws002](./AWS/aws002/): Create an S3 bucket using a module
 
 ## Azure
-The following is a list of projects connected to Azure:
-- [az0001](./Azure/az0001/): Creating an App Service
+The following projects are connected to Azure:
+
+- [az001](./Azure/az001/): Create an App Service
 
 ## Google Cloud Platform
-GCP projects are TBD.
+Projects for GCP are yet to be determined.
+
+--
+
+Feel free to organize your IaC projects within the respective platform folders and leverage the available modules to streamline your infrastructure deployments.

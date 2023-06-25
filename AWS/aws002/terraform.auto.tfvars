@@ -1,5 +1,5 @@
 # Project
-project = "aws0002"
+project = "aws002"
 
 # Terraform Cloud Variables
 # AWS_ACCESS_KEY = {}
