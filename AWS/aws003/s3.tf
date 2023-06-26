@@ -42,8 +42,8 @@ resource "aws_s3_bucket_policy" "aws003-policy" {
         Principal = "*"
         Action    = "s3:GetObject"
         Resource = [
-          aws_s3_bucket.aws003.arn,
-          "${aws_s3_bucket.aws003.arn}/*",
+          aws_s3_bucket.aws003-bucket.arn,
+          "${aws_s3_bucket.aws003-bucket.arn}/*",
         ]
       },
     ]
