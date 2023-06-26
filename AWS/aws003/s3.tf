@@ -12,6 +12,13 @@ resource "aws_s3_bucket_public_access_block" "aws003-public-access" {
   restrict_public_buckets = var.s3_restrict_public_buckets
 }
 
+resource "aws_s3_bucket_versioning" "aws003-versioning" {
+  bucket = aws_s3_bucket.aws003-bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 resource "aws_s3_bucket_website_configuration" "aws003-site" {
   bucket = aws_s3_bucket.aws003-bucket.id
 
