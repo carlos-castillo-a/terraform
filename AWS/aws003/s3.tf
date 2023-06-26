@@ -1,10 +1,10 @@
 # Bucket(s)
 resource "aws_s3_bucket" "aws003-bucket" {
-  bucket = var.environment != "prod" ? format("%s-carlos.%s", var.environment, var.domain_name) : format("carlos.%s", var.domain_name)
+  bucket = var.environment != "prod" ? format("%s-carlos.%s", var.environment, var.site_domain) : format("carlos.%s", var.site_domain)
 }
 
-resource "aws_s3_bucket_public_access_block" "aws001-public-access" {
-  bucket = aws_s3_bucket.aws001-bucket.id
+resource "aws_s3_bucket_public_access_block" "aws003-public-access" {
+  bucket = aws_s3_bucket.aws003-bucket.id
 
   block_public_acls       = var.s3_block_public_acls
   block_public_policy     = var.s3_block_public_policy
