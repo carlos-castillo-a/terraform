@@ -13,6 +13,11 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+    
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.0"
+    }
   }
 }
 
@@ -29,4 +34,9 @@ provider "aws" {
       Project     = var.project
     }
   }
+}
+
+# Configure the Cloudflare provider
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
 }
