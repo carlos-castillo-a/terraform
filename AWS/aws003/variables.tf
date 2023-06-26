@@ -23,6 +23,16 @@ variable "organization" {
   description = "Terraform Cloud organization"
 }
 
+variable "cloudflare_api_token" {
+  type        = string
+  description = "Cloudflare API token"
+}
+
+variable "site_domain" {
+  type = string
+  description = "Cloudflare Domain/Zone"
+}
+
 # S3 Vars
 variable "s3_block_public_acls" {
   type        = string
