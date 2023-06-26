@@ -1,6 +1,6 @@
 # Bucket(s)
 resource "aws_s3_bucket" "aws003-bucket" {
-  bucket = var.environment != "prod" ? format("%s-carlos.%s", var.environment, var.domain-name) : format("carlos.%s", var.domain-name)
+  bucket = var.environment != "prod" ? format("%s-carlos.%s", var.environment, var.domain_name) : format("carlos.%s", var.domain_name)
 }
 
 resource "aws_s3_bucket_public_access_block" "aws001-public-access" {
@@ -25,13 +25,13 @@ resource "aws_s3_bucket_website_configuration" "site" {
 }
 
 resource "aws_s3_bucket_acl" "site" {
-  bucket = aws_s3_bucket.site.id
+  bucket = aws_s3_bucket.aws003-bucket.id
 
   acl = "public-read"
 }
 
 resource "aws_s3_bucket_policy" "site" {
-  bucket = aws_s3_bucket.site.id
+  bucket = aws_s3_bucket.aws003-bucket.id
 
   policy = jsonencode({
     Version = "2012-10-17"
