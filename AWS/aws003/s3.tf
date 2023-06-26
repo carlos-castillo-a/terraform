@@ -12,7 +12,7 @@ resource "aws_s3_bucket_public_access_block" "aws003-public-access" {
   restrict_public_buckets = var.s3_restrict_public_buckets
 }
 
-resource "aws_s3_bucket_website_configuration" "site" {
+resource "aws_s3_bucket_website_configuration" "aws003-site" {
   bucket = aws_s3_bucket.aws003-bucket.id
 
   index_document {
@@ -24,13 +24,13 @@ resource "aws_s3_bucket_website_configuration" "site" {
   }
 }
 
-resource "aws_s3_bucket_acl" "site" {
+resource "aws_s3_bucket_acl" "aws003-acl" {
   bucket = aws_s3_bucket.aws003-bucket.id
 
   acl = "public-read"
 }
 
-resource "aws_s3_bucket_policy" "site" {
+resource "aws_s3_bucket_policy" "aws003-policy" {
   bucket = aws_s3_bucket.aws003-bucket.id
 
   policy = jsonencode({
@@ -42,8 +42,8 @@ resource "aws_s3_bucket_policy" "site" {
         Principal = "*"
         Action    = "s3:GetObject"
         Resource = [
-          aws_s3_bucket.site.arn,
-          "${aws_s3_bucket.site.arn}/*",
+          aws_s3_bucket.aws003.arn,
+          "${aws_s3_bucket.aws003.arn}/*",
         ]
       },
     ]

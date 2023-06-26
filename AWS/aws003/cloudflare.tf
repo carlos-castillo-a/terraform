@@ -9,7 +9,7 @@ data "cloudflare_zones" "domain" {
 resource "cloudflare_record" "site_name" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = var.environment != "prod" ? format("%s-carlos", var.environment) : "carlos"
-  value   = aws_s3_bucket_website_configuration.aws003-bucket.website_endpoint
+  value   = aws_s3_bucket_website_configuration.aws003-site.website_endpoint
   type    = "CNAME"
 
   ttl     = 1
