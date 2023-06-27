@@ -37,6 +37,14 @@ resource "aws_s3_bucket_acl" "aws003-acl" {
   acl = "public-read"
 }
 
+resource "aws_s3_bucket_ownership_controls" "aws003-ownership" {
+  bucket = aws_s3_bucket.aws003-bucket.id
+
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_policy" "aws003-policy" {
   bucket = aws_s3_bucket.aws003-bucket.id
 
