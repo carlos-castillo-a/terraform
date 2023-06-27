@@ -1,7 +1,7 @@
 # Storage Account
 resource "azurerm_storage_account" "storage" {
   count                    = var.num
-  name                     = format("%s%sstg%03d%s", var.RGID, var.environment, count.index + 1, var.name_suffix)
+  name                     = format("az%s%ssta%03d%s", var.project, var.environment, count.index + 1, var.name_suffix)
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = var.account_tier

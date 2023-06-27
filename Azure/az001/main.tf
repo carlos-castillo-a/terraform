@@ -36,6 +36,6 @@ provider "azuread" {
 
 # Resource Group
 resource "azurerm_resource_group" "rg" {
-  name     = format("%s%srgp%s%s", var.RGID, var.environment, var.create_date, var.name_suffix)
+  name     = format("az%s%srgp%s%s", var.project, var.environment, var.create_date, var.name_suffix)
   location = var.location
 }

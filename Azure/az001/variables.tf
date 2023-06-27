@@ -7,7 +7,7 @@ variable environment {}
 variable organization {}
 
 # Workspace Variables
-variable "RGID" {
+variable "project" {
   type        = string
   description = "Resource Group ID"
 }
