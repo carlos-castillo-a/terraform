@@ -21,6 +21,7 @@ The following projects are connected to AWS:
 
 - [aws001](./AWS/aws001/): Create an S3 bucket
 - [aws002](./AWS/aws002/): Create an S3 bucket using a module
+- [aws003](./AWS/aws003/): Deploy static site using S3 and Cloudflare
 
 ## Azure
 The following projects are connected to Azure:
