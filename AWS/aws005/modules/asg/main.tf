@@ -14,9 +14,6 @@ resource "aws_launch_template" "this" {
   })
 }
 
-# Get Availability Zones
-data "aws_availability_zones" "available_zones" {}
-
 # Create ASG
 resource "aws_autoscaling_group" "this" {
   name                      = "aws${var.project}-${var.environment}-asg"
