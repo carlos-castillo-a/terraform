@@ -7,3 +7,4 @@ variable "CPU" {
 variable "PRI_SUB_3_A_ID" {}
 variable "PRI_SUB_4_B_ID" {}
 variable "TG_ARN" {}
+variable "AMI" {}
