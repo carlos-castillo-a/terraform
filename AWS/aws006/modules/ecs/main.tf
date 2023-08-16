@@ -14,7 +14,7 @@ resource "aws_ecs_task_definition" "users_task_definition" {
 
   container_definitions = jsonencode([{
     name  = "users-container"
-    image = "node-app/users" 
+    image = "${var.users_image}"
     portMappings = [{
       containerPort = 3000
       hostPort      = 3000
@@ -54,7 +54,7 @@ resource "aws_ecs_task_definition" "threads_task_definition" {
 
   container_definitions = jsonencode([{
     name  = "threads-container"
-    image = "node-app/threads" 
+    image = "${var.threads_image}"
     portMappings = [{
       containerPort = 3000
       hostPort      = 3000
@@ -94,7 +94,7 @@ resource "aws_ecs_task_definition" "posts_task_definition" {
 
   container_definitions = jsonencode([{
     name  = "posts-container"
-    image = "node-app/posts" 
+    image = "${var.posts_image}"
     portMappings = [{
       containerPort = 3000
       hostPort      = 3000

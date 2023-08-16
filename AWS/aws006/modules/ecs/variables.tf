@@ -37,3 +37,18 @@ variable "POSTS_TG_ARN" {
   description = "The ARN of the Target Group for the posts service."
   type        = string
 }
+
+variable "users_image" {
+  description = "The image uri for the users service."
+  type        = string
+}
+
+variable "threads_image" {
+  description = "The image uri for the threads service."
+  type        = string
+}
+
+variable "posts_image" {
+  description = "The image uri for the posts service."
+  type        = string
+}

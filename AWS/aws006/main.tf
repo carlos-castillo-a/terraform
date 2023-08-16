@@ -43,7 +43,9 @@ module "ecs" {
   USERS_TG_ARN         = module.alb.USERS_TG_ARN
   THREADS_TG_ARN       = module.alb.THREADS_TG_ARN
   POSTS_TG_ARN         = module.alb.POSTS_TG_ARN
-
+  users_image          = var.users_image
+  threads_image        = var.threads_image
+  posts_image          = var.posts_image
 }
 
 # Create Cloudfront Distribution 
