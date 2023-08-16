@@ -23,6 +23,11 @@ variable "organization" {
   description = "Terraform Cloud organization"
 }
 
+variable "certificate_arn" {
+  type        = string
+  description = "ACM Certificate ARN"
+}
+
 # VPC Variables
 variable "VPC_CIDR" {
   default = "10.1.0.0/16"

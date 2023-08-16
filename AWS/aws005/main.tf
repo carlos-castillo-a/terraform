@@ -22,13 +22,14 @@ module "sg" {
 
 # Create Application Load Balancer
 module "alb" {
-  source         = "./modules/alb"
-  project        = var.project
-  environment    = var.environment
-  alb_sg_id      = module.sg.alb_sg_id
-  PUB_SUB_1_A_ID = module.vpc.PUB_SUB_1_A_ID
-  PUB_SUB_2_B_ID = module.vpc.PUB_SUB_2_B_ID
-  vpc_id         = module.vpc.vpc_id
+  source          = "./modules/alb"
+  project         = var.project
+  environment     = var.environment
+  alb_sg_id       = module.sg.alb_sg_id
+  PUB_SUB_1_A_ID  = module.vpc.PUB_SUB_1_A_ID
+  PUB_SUB_2_B_ID  = module.vpc.PUB_SUB_2_B_ID
+  vpc_id          = module.vpc.vpc_id
+  certificate_arn = var.certificate_arn
 }
 
 # Crating Auto Scaling Group
@@ -59,6 +60,6 @@ module "cloudfront" {
 module "route53" {
   source                    = "./modules/route53"
   record_name               = var.record_name
-  cloudfront_domain_name    = var.additional_domain_name
+  cloudfront_domain_name    = module.cloudfront.cloudfront_domain_name
   cloudfront_hosted_zone_id = module.cloudfront.cloudfront_hosted_zone_id
 }
