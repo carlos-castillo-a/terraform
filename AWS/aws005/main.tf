@@ -37,6 +37,7 @@ module "asg" {
   project        = var.project
   environment    = var.environment
   app_sg_id      = module.sg.app_sg_id 
+  AMI            = var.AMI
   PRI_SUB_3_A_ID = module.vpc.PRI_SUB_3_A_ID
   PRI_SUB_4_B_ID = module.vpc.PRI_SUB_4_B_ID
   TG_ARN         = module.alb.TG_ARN
@@ -58,6 +59,6 @@ module "cloudfront" {
 module "route53" {
   source                    = "./modules/route53"
   record_name               = var.record_name
-  cloudfront_domain_name    = module.cloudfront.cloudfront_domain_name
-  cloudfront_hosted_zone_id = module.cloudfront.cloudfront_hosted_zone_id
+  cloudfront_domain_name    = var.additional_domain_name
+  cloudfront_hosted_zone_id = var.cloudfront_hosted_zone_id
 }

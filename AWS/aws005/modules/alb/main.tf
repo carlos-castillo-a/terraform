@@ -1,6 +1,6 @@
 # Create ALB
 resource "aws_lb" "application_load_balancer" {
-  name                       = "aws${var.project}-${var.envrionment}-alb"
+  name                       = "aws${var.project}-${var.environment}-alb"
   internal                   = false
   load_balancer_type         = "application"
   security_groups            = [var.alb_sg_id]
@@ -8,17 +8,17 @@ resource "aws_lb" "application_load_balancer" {
   enable_deletion_protection = false
 
   tags = merge({
-    Name = "aws${var.project}-${var.envrionment}-alb"
+    Name = "aws${var.project}-${var.environment}-alb"
   })
 }
 
 # Create Target Group
 resource "aws_lb_target_group" "alb_target_group" {
-  name        = "aws${var.project}-${var.envrionment}-tg"
+  name        = "aws${var.project}-${var.environment}-tg"
   target_type = "instance"
   port        = 3000
   protocol    = "HTTP"
-  vpc_id      = var.VPC_ID
+  vpc_id      = var.vpc_id
 
   health_check {
     enabled             = true
