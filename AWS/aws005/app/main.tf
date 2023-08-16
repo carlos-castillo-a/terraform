@@ -36,7 +36,7 @@ module "asg" {
   source         = "../modules/asg"
   project        = var.project
   environment    = var.environment
-  app_sg_id      = module.sg.CLIENT_SG_ID
+  app_sg_id      = module.sg.app_sg_id 
   PRI_SUB_3_A_ID = module.vpc.PRI_SUB_3_A_ID
   PRI_SUB_4_B_ID = module.vpc.PRI_SUB_4_B_ID
   TG_ARN         = module.alb.TG_ARN
@@ -54,8 +54,7 @@ module "cloudfront" {
 }
 
 
-# Add record in route 53 hosted zone
-
+# Add record in Route 53 
 module "route53" {
   source                    = "../modules/route-s3"
   record_name               = var.record_name
