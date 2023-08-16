@@ -89,7 +89,7 @@ resource "aws_lb_listener" "alb_http_listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.alb_target_group.arn
+    target_group_arn = aws_lb_target_group.users_target_group.arn
   }
 }
 
@@ -101,7 +101,7 @@ resource "aws_lb_listener" "alb_https_listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.alb_target_group.arn
+    target_group_arn = aws_lb_target_group.users_target_group.arn
   }
 }
 
