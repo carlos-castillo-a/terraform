@@ -51,7 +51,7 @@ variable "PRI_SUB_5_A_CIDR" {
 }
 
 variable "PRI_SUB_6_B_CIDR" {
-  default = "10.1.5.0"
+  default = "10.1.5.0/24"
 }
 
 # Cloudfron Variables
