@@ -66,7 +66,7 @@ resource "aws_ecs_task_definition" "threads_task_definition" {
 resource "aws_ecs_service" "threads_service" {
   name            = "aws${var.project}-${var.environment}-threads-service"
   cluster         = aws_ecs_cluster.main_cluster.id
-  task_definition = aws_ecs_task_definition.users_task_definition.arn
+  task_definition = aws_ecs_task_definition.threads_task_definition.arn
   launch_type     = "FARGATE"
 
   network_configuration {
@@ -106,7 +106,7 @@ resource "aws_ecs_task_definition" "posts_task_definition" {
 resource "aws_ecs_service" "posts_service" {
   name            = "aws${var.project}-${var.environment}-posts-service"
   cluster         = aws_ecs_cluster.main_cluster.id
-  task_definition = aws_ecs_task_definition.users_task_definition.arn
+  task_definition = aws_ecs_task_definition.posts_task_definition.arn
   launch_type     = "FARGATE"
 
   network_configuration {
