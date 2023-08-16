@@ -2,7 +2,7 @@
 resource "aws_security_group" "alb_sg" {
   name        = "aws${var.project} alb security group"
   description = "Enable http/https access on port 80/443"
-  vpc_id      = var.VPC_ID
+  vpc_id      = var.vpc_id
 
   ingress {
     description = "http access"
@@ -36,7 +36,7 @@ resource "aws_security_group" "alb_sg" {
 resource "aws_security_group" "app_sg" {
   name        = "aws${var.project}_app_sg"
   description = "Enable http/https access on port 3000 from ALB sg"
-  vpc_id      = var.VPC_ID
+  vpc_id      = var.vpc_id
 
   ingress {
     description     = "http access"
