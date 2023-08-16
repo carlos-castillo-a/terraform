@@ -15,7 +15,7 @@ module "vpc" {
 
 # Create Security Groups
 module "sg" {
-  source  = "./modules/SG"
+  source  = "./modules/sg"
   vpc_id  = module.vpc.vpc_id
   project = var.project
 }
@@ -45,7 +45,7 @@ module "asg" {
 
 # Create Cloudfront Distribution 
 module "cloudfront" {
-  source                  = "./modules/cloud-front"
+  source                  = "./modules/cloudfront"
   certificate_domain_name = var.certificate_domain_name
   alb_domain_name         = module.alb.alb_domain_name
   additional_domain_name  = var.additional_domain_name
@@ -56,7 +56,7 @@ module "cloudfront" {
 
 # Add record in Route 53 
 module "route53" {
-  source                    = "./modules/route-s3"
+  source                    = "./modules/route53"
   record_name               = var.record_name
   cloudfront_domain_name    = module.cloudfront.cloudfront_domain_name
   cloudfront_hosted_zone_id = module.cloudfront.cloudfront_hosted_zone_id
