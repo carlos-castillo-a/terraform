@@ -1,6 +1,6 @@
 # Creating VPC
 module "vpc" {
-  source      = "../modules/vpc"
+  source      = "./modules/vpc"
   project     = var.project
   environment = var.environment
 
@@ -15,14 +15,14 @@ module "vpc" {
 
 # Create Security Groups
 module "sg" {
-  source  = "../modules/SG"
+  source  = "./modules/SG"
   vpc_id  = module.vpc.vpc_id
   project = var.project
 }
 
 # Create Application Load Balancer
 module "alb" {
-  source         = "../modules/alb"
+  source         = "./modules/alb"
   project        = var.project
   environment    = var.environment
   alb_sg_id      = module.sg.alb_sg_id
@@ -33,7 +33,7 @@ module "alb" {
 
 # Crating Auto Scaling Group
 module "asg" {
-  source         = "../modules/asg"
+  source         = "./modules/asg"
   project        = var.project
   environment    = var.environment
   app_sg_id      = module.sg.app_sg_id 
@@ -45,7 +45,7 @@ module "asg" {
 
 # Create Cloudfront Distribution 
 module "cloudfront" {
-  source                  = "../modules/cloud-front"
+  source                  = "./modules/cloud-front"
   certificate_domain_name = var.certificate_domain_name
   alb_domain_name         = module.alb.alb_domain_name
   additional_domain_name  = var.additional_domain_name
@@ -56,7 +56,7 @@ module "cloudfront" {
 
 # Add record in Route 53 
 module "route53" {
-  source                    = "../modules/route-s3"
+  source                    = "./modules/route-s3"
   record_name               = var.record_name
   cloudfront_domain_name    = module.cloudfront.cloudfront_domain_name
   cloudfront_hosted_zone_id = module.cloudfront.cloudfront_hosted_zone_id
