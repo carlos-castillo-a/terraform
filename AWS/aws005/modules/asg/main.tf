@@ -14,6 +14,9 @@ resource "aws_launch_template" "this" {
   })
 }
 
+# Get Availability Zones
+data "aws_availability_zones" "available_zones" {}
+
 # Create ASG
 resource "aws_autoscaling_group" "this" {
   name                      = "aws${var.project}-${var.environment}-asg"
@@ -22,7 +25,7 @@ resource "aws_autoscaling_group" "this" {
   desired_capacity          = 2
   health_check_grace_period = 300
   health_check_type         = "EC2"
-  availability_zones        = ["us-east-1a", "us-east-1b"]
+  availability_zones        = [data.aws_availability_zones.available_zones.names[0], data.aws_availability_zones.available_zones.names[1]]
   vpc_zone_identifier       = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
   target_group_arns         = [var.TG_ARN] #var.target_group_arns
 
