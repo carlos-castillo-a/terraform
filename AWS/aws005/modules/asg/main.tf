@@ -16,7 +16,7 @@ resource "aws_launch_template" "this" {
 
 # Create ASG
 resource "aws_autoscaling_group" "this" {
-  name                      = "aws${var.project}-${var.envrionment}-asg"
+  name                      = "aws${var.project}-${var.environment}-asg"
   max_size                  = 3
   min_size                  = 2
   desired_capacity          = 2
@@ -44,7 +44,7 @@ resource "aws_autoscaling_group" "this" {
 
 # Scale Up Policy
 resource "aws_autoscaling_policy" "scale_up" {
-  name                   = "aws${var.project}-${var.envrionment}-asg-scale-up"
+  name                   = "aws${var.project}-${var.environment}-asg-scale-up"
   autoscaling_group_name = aws_autoscaling_group.this.name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "1"
@@ -54,7 +54,7 @@ resource "aws_autoscaling_policy" "scale_up" {
 
 # Scale Up Alarm
 resource "aws_cloudwatch_metric_alarm" "scale_up_alarm" {
-  alarm_name          = "aws${var.project}-${var.envrionment}-asg-scale-up-alarm"
+  alarm_name          = "aws${var.project}-${var.environment}-asg-scale-up-alarm"
   alarm_description   = "asg-scale-up-cpu-alarm"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "2"
@@ -73,7 +73,7 @@ resource "aws_cloudwatch_metric_alarm" "scale_up_alarm" {
 
 # Scale Down Policy
 resource "aws_autoscaling_policy" "scale_down" {
-  name                   = "aws${var.project}-${var.envrionment}-asg-scale-down"
+  name                   = "aws${var.project}-${var.environment}-asg-scale-down"
   autoscaling_group_name = aws_autoscaling_group.this.name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "-1" # decreasing instance by 1 
@@ -83,7 +83,7 @@ resource "aws_autoscaling_policy" "scale_down" {
 
 # Scale Down Alarm
 resource "aws_cloudwatch_metric_alarm" "scale_down_alarm" {
-  alarm_name          = "aws${var.project}-${var.envrionment}-asg-scale-down-alarm"
+  alarm_name          = "aws${var.project}-${var.environment}-asg-scale-down-alarm"
   alarm_description   = "asg-scale-down-cpu-alarm"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "2"
