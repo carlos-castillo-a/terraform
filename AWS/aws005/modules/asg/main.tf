@@ -21,10 +21,10 @@ resource "aws_autoscaling_group" "this" {
   min_size                  = 2
   desired_capacity          = 2
   health_check_grace_period = 300
-  health_check_type         = var.asg_health_check_type 
-  availability_zones  = ["us-east-1a", "us-east-1b"]
-  vpc_zone_identifier = [var.PRI_SUB_3_A_ID,var.PRI_SUB_4_B_ID]
-  target_group_arns   = [var.TG_ARN] #var.target_group_arns
+  health_check_type         = var.asg_health_check_type
+  availability_zones        = ["us-east-1a", "us-east-1b"]
+  vpc_zone_identifier       = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
+  target_group_arns         = [var.TG_ARN] #var.target_group_arns
 
   enabled_metrics = [
     "GroupMinSize",
@@ -66,7 +66,7 @@ resource "aws_cloudwatch_metric_alarm" "scale_up_alarm" {
   dimensions = {
     "AutoScalingGroupName" = aws_autoscaling_group.this.name
   }
-  
+
   actions_enabled = true
   alarm_actions   = [aws_autoscaling_policy.scale_up.arn]
 }

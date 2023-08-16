@@ -1,13 +1,13 @@
 # Create ALB
 resource "aws_lb" "application_load_balancer" {
-  name               = "aws${var.project}-${var.envrionment}-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [var.alb_sg_id]
-  subnets            = [var.PUB_SUB_1_A_ID,var.PUB_SUB_2_B_ID]
+  name                       = "aws${var.project}-${var.envrionment}-alb"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [var.alb_sg_id]
+  subnets                    = [var.PUB_SUB_1_A_ID, var.PUB_SUB_2_B_ID]
   enable_deletion_protection = false
 
-  tags   = merge({
+  tags = merge({
     Name = "aws${var.project}-${var.envrionment}-alb"
   })
 }
@@ -42,7 +42,7 @@ resource "aws_lb_listener" "alb_http_listener" {
   protocol          = "HTTP"
 
   default_action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.alb_target_group.arn
   }
 }
@@ -53,7 +53,7 @@ resource "aws_lb_listener" "alb_http_listener" {
   protocol          = "HTTPS"
 
   default_action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.alb_target_group.arn
   }
 }

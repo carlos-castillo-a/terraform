@@ -6,7 +6,7 @@ data "aws_route53_zone" "public-zone" {
 
 resource "aws_route53_record" "cloudfront_record" {
   zone_id = data.aws_route53_zone.public-zone.zone_id
-  name    = "${var.record_name}"
+  name    = var.record_name
   type    = "A"
 
   alias {

@@ -57,3 +57,4 @@ variable "PRI_SUB_6_B_CIDR" {
 # Cloudfron Variables
 variable "certificate_domain_name" {}
 variable "additional_domain_name" {}
+variable "record_name" {}

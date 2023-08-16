@@ -1,9 +1,9 @@
 # Creating VPC
 module "vpc" {
-  source           = "../modules/vpc"
-  project          = var.project
-  environment      = var.environment
-  
+  source      = "../modules/vpc"
+  project     = var.project
+  environment = var.environment
+
   VPC_CIDR         = var.VPC_CIDR
   PUB_SUB_1_A_CIDR = var.PUB_SUB_1_A_CIDR
   PUB_SUB_2_B_CIDR = var.PUB_SUB_2_B_CIDR
@@ -15,9 +15,9 @@ module "vpc" {
 
 # Create Security Groups
 module "sg" {
-  source = "../modules/SG"
-  vpc_id = module.vpc.vpc_id
-  project     = var.project
+  source  = "../modules/SG"
+  vpc_id  = module.vpc.vpc_id
+  project = var.project
 }
 
 # Create Application Load Balancer
@@ -45,19 +45,20 @@ module "asg" {
 
 # Create Cloudfront Distribution 
 module "cloudfront" {
-  source = "../modules/cloud-front"
+  source                  = "../modules/cloud-front"
   certificate_domain_name = var.certificate_domain_name
-  alb_domain_name = module.alb.alb_domain_name
-  additional_domain_name = var.additional_domain_name
-  project = var.project
-  environment    = var.environment
+  alb_domain_name         = module.alb.alb_domain_name
+  additional_domain_name  = var.additional_domain_name
+  project                 = var.project
+  environment             = var.environment
 }
 
 
 # Add record in route 53 hosted zone
 
 module "route53" {
-  source = "../modules/route-s3"
-  cloudfront_domain_name = module.cloudfront.cloudfront_domain_name
+  source                    = "../modules/route-s3"
+  record_name               = var.record_name
+  cloudfront_domain_name    = module.cloudfront.cloudfront_domain_name
   cloudfront_hosted_zone_id = module.cloudfront.cloudfront_hosted_zone_id
 }
