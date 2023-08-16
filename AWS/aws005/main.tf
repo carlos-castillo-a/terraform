@@ -60,5 +60,5 @@ module "route53" {
   source                    = "./modules/route53"
   record_name               = var.record_name
   cloudfront_domain_name    = var.additional_domain_name
-  cloudfront_hosted_zone_id = var.cloudfront_hosted_zone_id
+  cloudfront_hosted_zone_id = module.cloudfront.cloudfront_hosted_zone_id
 }

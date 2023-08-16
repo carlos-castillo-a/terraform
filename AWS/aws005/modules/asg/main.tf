@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "this" {
   min_size                  = 2
   desired_capacity          = 2
   health_check_grace_period = 300
-  health_check_type         = var.asg_health_check_type
+  health_check_type         = "EC2"
   availability_zones        = ["us-east-1a", "us-east-1b"]
   vpc_zone_identifier       = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
   target_group_arns         = [var.TG_ARN] #var.target_group_arns
