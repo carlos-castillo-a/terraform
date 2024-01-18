@@ -1,5 +1,5 @@
 # Project
-project = "aws001"
+project     = "aws001"
 stakeholder = "admin01"
 
 # S3 vars
