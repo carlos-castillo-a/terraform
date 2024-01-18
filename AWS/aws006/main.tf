@@ -34,18 +34,18 @@ module "alb" {
 
 # Crating Auto Scaling Group
 module "ecs" {
-  source               = "./modules/ecs"
-  project              = var.project
-  environment          = var.environment
-  app_sg_id            = module.sg.app_sg_id 
-  PRI_SUB_3_A_ID       = module.vpc.PRI_SUB_3_A_ID
-  PRI_SUB_4_B_ID       = module.vpc.PRI_SUB_4_B_ID
-  USERS_TG_ARN         = module.alb.USERS_TG_ARN
-  THREADS_TG_ARN       = module.alb.THREADS_TG_ARN
-  POSTS_TG_ARN         = module.alb.POSTS_TG_ARN
-  users_image          = var.users_image
-  threads_image        = var.threads_image
-  posts_image          = var.posts_image
+  source         = "./modules/ecs"
+  project        = var.project
+  environment    = var.environment
+  app_sg_id      = module.sg.app_sg_id
+  PRI_SUB_3_A_ID = module.vpc.PRI_SUB_3_A_ID
+  PRI_SUB_4_B_ID = module.vpc.PRI_SUB_4_B_ID
+  USERS_TG_ARN   = module.alb.USERS_TG_ARN
+  THREADS_TG_ARN = module.alb.THREADS_TG_ARN
+  POSTS_TG_ARN   = module.alb.POSTS_TG_ARN
+  users_image    = var.users_image
+  threads_image  = var.threads_image
+  posts_image    = var.posts_image
 }
 
 # Create Cloudfront Distribution 

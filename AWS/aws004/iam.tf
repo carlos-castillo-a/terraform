@@ -1,7 +1,7 @@
 # Lambda Role
 resource "aws_iam_role" "aws004_lambda_role" {
-    name = format("aws%s%s-lambda-iam-role", var.project, var.environment)
-    assume_role_policy = <<EOF
+  name               = format("aws%s%s-lambda-iam-role", var.project, var.environment)
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -20,10 +20,10 @@ EOF
 
 # Lambda IAM Policy
 resource "aws_iam_policy" "aws004_lambda_policy" {
-  name = format("aws%s%s-lambda-iam-policy-%03d", var.project, var.environment, count.index + 1)
-  path = "/"
+  name        = format("aws%s%s-lambda-iam-policy-%03d", var.project, var.environment, count.index + 1)
+  path        = "/"
   description = format("AWS IAM Policy for %s", aws_iam_role.aws004_lambda_role.name)
-  policy = <<EOF
+  policy      = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [

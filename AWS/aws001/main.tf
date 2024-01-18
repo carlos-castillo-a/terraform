@@ -8,7 +8,7 @@ terraform {
 }
 
 # Configure Spacelift Provided
-provider spacelift {}
+provider "spacelift" {}
 
 # Configure the AWS Provider
 provider "aws" {

@@ -8,8 +8,8 @@ resource "aws_ecs_task_definition" "users_task_definition" {
   family                   = "users-task-definition"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = "256" 
-  memory                   = "512"  
+  cpu                      = "256"
+  memory                   = "512"
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
 
   container_definitions = jsonencode([{
@@ -30,7 +30,7 @@ resource "aws_ecs_service" "users_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
+    subnets         = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
     security_groups = [var.app_sg_id]
   }
 
@@ -48,8 +48,8 @@ resource "aws_ecs_task_definition" "threads_task_definition" {
   family                   = "threads-task-definition"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = "256" 
-  memory                   = "512"  
+  cpu                      = "256"
+  memory                   = "512"
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
 
   container_definitions = jsonencode([{
@@ -70,7 +70,7 @@ resource "aws_ecs_service" "threads_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
+    subnets         = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
     security_groups = [var.app_sg_id]
   }
 
@@ -88,8 +88,8 @@ resource "aws_ecs_task_definition" "posts_task_definition" {
   family                   = "posts-task-definition"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = "256" 
-  memory                   = "512"  
+  cpu                      = "256"
+  memory                   = "512"
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
 
   container_definitions = jsonencode([{
@@ -110,7 +110,7 @@ resource "aws_ecs_service" "posts_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
+    subnets         = [var.PRI_SUB_3_A_ID, var.PRI_SUB_4_B_ID]
     security_groups = [var.app_sg_id]
   }
 
