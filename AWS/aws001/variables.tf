@@ -1,6 +1,6 @@
-# Authentication (use Terraform Cloud Variables)
-variable "AWS_ACCESS_KEY" {}
-variable "AWS_SECRET_KEY" {}
+# # Authentication (use Terraform Cloud Variables)
+# variable "AWS_ACCESS_KEY" {}
+# variable "AWS_SECRET_KEY" {}
 
 # Global Vars
 variable "project" {
