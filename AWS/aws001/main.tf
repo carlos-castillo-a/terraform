@@ -1,20 +1,14 @@
 # Configure Terraform Cloud & Required Providers
 terraform {
-  cloud {
-    organization = var.organization
-
-    workspaces {
-      tags = [var.environment]
-    }
-  }
-
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
+    spacelift = {
+      source = "spacelift-io/spacelift"
     }
   }
 }
+
+# Configure Spacelift Provided
+provider spacelift {}
 
 # Configure the AWS Provider
 provider "aws" {
