@@ -24,7 +24,7 @@ provider "aws" {
   default_tags {
     tags = {
       Stakeholder = var.stakeholder
-      IaC         = "spacelift/terraform"
+      IaC         = "terraform"
       Project     = var.project
     }
   }
