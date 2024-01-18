@@ -13,7 +13,7 @@ variable "environment" {
   description = "Environment variable"
 }
 
-variable "owner" {
+variable "stakeholder" {
   type        = string
   description = "Creator of resources"
 }
