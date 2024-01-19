@@ -25,7 +25,7 @@ provider "aws" {
     tags = {
       Stakeholder = var.stakeholder
       IaC         = "terraform"
-      State       = "spacelift"
+      State       = var.spacelift_stack
       Project     = var.project
     }
   }

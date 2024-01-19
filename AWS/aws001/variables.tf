@@ -18,6 +18,11 @@ variable "stakeholder" {
   description = "Creator of resources"
 }
 
+variable "spacelift_stack" {
+  type        = string
+  description = "Spacelift stack name, location of backend"
+}
+
 # variable "organization" {
 #   type        = string
 #   description = "Terraform Cloud organization"
