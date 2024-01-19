@@ -10,19 +10,19 @@ terraform {
 
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "3.26.0"
     }
-    
+
     azuread = {
-      source = "hashicorp/azuread"
+      source  = "hashicorp/azuread"
       version = "2.29.0"
     }
   }
 }
 
 # Configure the Azure Providers
-provider "azurerm" { 
+provider "azurerm" {
   features {}
   subscription_id = var.ARM_SUBSCRIPTION_ID
   client_id       = var.ARM_CLIENT_ID
@@ -30,7 +30,7 @@ provider "azurerm" {
   tenant_id       = var.ARM_TENANT_ID
 }
 
-provider "azuread" { 
+provider "azuread" {
   # Configuration options 
 }
 

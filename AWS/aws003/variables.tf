@@ -29,7 +29,7 @@ variable "cloudflare_api_token" {
 }
 
 variable "site_domain" {
-  type = string
+  type        = string
   description = "Cloudflare Domain/Zone"
 }
 

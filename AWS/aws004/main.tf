@@ -1,10 +1,14 @@
 # Configure Terraform Cloud & Required Providers
 terraform {
-  required_providers {
-    spacelift = {
-      source = "spacelift-io/spacelift"
-    }
+  cloud {
+    organization = var.organization
 
+    workspaces {
+      tags = [var.environment]
+    }
+  }
+
+  required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 4.0"
@@ -12,14 +16,11 @@ terraform {
   }
 }
 
-# Configure Spacelift Provided
-provider "spacelift" {}
-
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
-  # access_key = var.AWS_ACCESS_KEY_ID
-  # secret_key = var.AWS_SECRET_ACCESS_KEY
+  region     = "us-east-1"
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
 
   default_tags {
     tags = {

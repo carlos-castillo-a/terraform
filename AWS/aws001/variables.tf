@@ -1,6 +1,6 @@
-# Authentication (use Terraform Cloud Variables)
-variable "AWS_ACCESS_KEY" {}
-variable "AWS_SECRET_KEY" {}
+# Authentication
+# variable "AWS_ACCESS_KEY_ID" {}
+# variable "AWS_SECRET_ACCESS_KEY" {}
 
 # Global Vars
 variable "project" {
@@ -18,10 +18,10 @@ variable "stakeholder" {
   description = "Creator of resources"
 }
 
-variable "organization" {
-  type        = string
-  description = "Terraform Cloud organization"
-}
+# variable "organization" {
+#   type        = string
+#   description = "Terraform Cloud organization"
+# }
 
 # S3 Vars
 variable "s3_block_public_acls" {
