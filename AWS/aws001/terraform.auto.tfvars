@@ -1,6 +1,6 @@
 # Project
 project     = "001"
-stakeholder = "test@castillo-a.com"
+stakeholder = "admin01@castillo-a.com"
 
 # S3 vars
 s3_block_public_acls       = "true"
